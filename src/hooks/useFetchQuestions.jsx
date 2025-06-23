@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { fetchQuestions } from '../api/fetchQuestions'
 
 export default function useFetchQuestions(categoryID) {
-    console.log(categoryID);
+    // console.log(categoryID);
     const [questions,setQuestions] = useState([]);
     const [error,setError] = useState(null);
     const [loading,setLoading] = useState(true);
@@ -15,7 +15,7 @@ export default function useFetchQuestions(categoryID) {
 
         fetchQuestions(categoryID).then((res)=>{
             if(res.error){
-                setError(res.error);
+                setError(res.error);    
                 setQuestions([]);
             }
             else setQuestions(res);

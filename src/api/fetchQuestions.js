@@ -8,7 +8,7 @@ export async function fetchQuestions(categoryID) {
       }
       
       let data = await res.json();
-      console.log(data);
+      // console.log(data);
       if(data.response_code !=0){
         throw new Error(`Api Error :${data.response_code}`);
       }
