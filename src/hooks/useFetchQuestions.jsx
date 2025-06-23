@@ -1,27 +1,29 @@
-import React, { useEffect, useState } from 'react'
-import { fetchQuestions } from '../api/fetchQuestions'
+"use client"
 
-export default function useFetchQuestions(categoryID) {
-    // console.log(categoryID);
-    const [questions,setQuestions] = useState([]);
-    const [error,setError] = useState(null);
-    const [loading,setLoading] = useState(true);
+import { useEffect, useState } from "react"
+import { fetchQuestions } from "../api/fetchQuestions"
 
-    useEffect(()=>{
-        if(!categoryID) return;
+export default function useFetchQuestions(categoryID, difficulty) {
+  const [questions, setQuestions] = useState([])
+  const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(true)
 
-        setError(null);
-        setLoading(true);
+  useEffect(() => {
+    if (!categoryID || !difficulty) return
 
-        fetchQuestions(categoryID).then((res)=>{
-            if(res.error){
-                setError(res.error);    
-                setQuestions([]);
-            }
-            else setQuestions(res);
-            setLoading(false);
-        });
-    },[categoryID]);
+    setError(null)
+    setLoading(true)
 
-    return {questions,error,loading};
+    fetchQuestions(categoryID, difficulty).then((res) => {
+      if (res.error) {
+        setError(res.error)
+        setQuestions([])
+      } else {
+        setQuestions(res)
+      }
+      setLoading(false)
+    })
+  }, [categoryID, difficulty])
+
+  return { questions, error, loading }
 }
