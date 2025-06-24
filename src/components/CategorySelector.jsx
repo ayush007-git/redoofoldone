@@ -1,5 +1,3 @@
-"use client"
-
 import { useCategory } from "../contexts/CategoryContext"
 import { useNavigate } from "react-router-dom"
 

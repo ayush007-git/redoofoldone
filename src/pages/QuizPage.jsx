@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import { useCategory } from "../contexts/CategoryContext"
 import useFetchQuestions from "../hooks/useFetchQuestions"

@@ -1,5 +1,3 @@
-"use client"
-
 import { useEffect, useState, useRef } from "react"
 
 function shuffleArray(array) {
